@@ -104,9 +104,9 @@ class DCTopo(Topo):
                            
         # Adding senders
         for i in range(n):
-          self.addHost('h%d' % i)
+          self.add_host('h%d' % i)
         # Adding switch
-	switch = self.addSwitch('s0')
+	switch = self.add_switch('s0')
 
         # Configuration of sender, receiver and switch
         senderConfig   = {'bw':args.bw_sender, 
@@ -129,12 +129,12 @@ class DCTopo(Topo):
                             'params2': switchConfig}
         
         # Adding link from the switch to the rcvr.
-        self.addLink('h0', switch, cls=Link, cls1=TCIntf, cls2=TCIntf, 
+        self.add_link('h0', switch, cls=Link, cls1=TCIntf, cls2=TCIntf, 
                       params1=receiverConfig, params2=switchConfig)
 
         # Adding links from the switch to the senders (hosts)
         for i in range(1,n):
-          self.addLink('h%s' % i, switch, **senderConfig)
+          self.add_link('h%s' % i, switch, **senderConfig)
 
         return
 

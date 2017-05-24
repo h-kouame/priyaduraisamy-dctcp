@@ -3,12 +3,12 @@
 # Note: Mininet must be run as root.  So invoke this shell script
 # using sudo.
 
-bw_sender=100
-bw_receiver=100
-delay=0.25
+bw_sender=200
+bw_receiver=150
+delay=0.10
 
 iperf_port=5001
-for qsize in 120; do
+for qsize in 100; do
     dirResult=results
 
     # Expt 1 : Queue occupancy over time - comparing DCTCP & TCP
